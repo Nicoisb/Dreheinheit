@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FlowControl</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="pureknob.js"></script>
+    <script src="scripts.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">FlowControl</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Dreheinheit 1-->
+    <div class="container">
+        <form method="post" action="/">
+
+            <h1>Dreheinheit 1</h1>
+
+            <div class="row box1">
+
+                <div class="col-sm-4">
+                    <h2>Geschwindigkeit</h2>
+                    <div id="servospeed1"></div>
+                </div>
+
+                <!--RandomPattern-->
+                <div class="col-sm-8 align-items-center">
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <h2>Einstellungen</h2>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="randompatternservo1"
+                                        name="randompatternservoname1" %CHECKEDRANDOM_SERVO1%>
+                                    <label class="form-check-label"
+                                        for="flexSwitchCheckDefault">Geschwindigkeitsvariationen</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--On/Off-->
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="onoff" name="onoffname1" %CHECKEDONOFF_SERVO1%>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">An/Aus</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--DirectControl-->
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="directcontrol1" name="directcontrolname1" %CHECKMANUALCONTROL_SERVO1%>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Manuelle Steuerung</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div slider id="slider-distance-1">
+                    <div>
+                        <div inverse-left></div>
+                        <div inverse-right></div>
+                        <div range></div>
+                        <span thumb></span>
+                        <span thumb></span>
+                        <div sign>
+                            <span id="value">30</span>
+                        </div>
+                        <div sign>
+                            <span id="value">60</span>
+                        </div>
+                    </div>
+                    
+                    <input type="range" name="minsliderservo1" id="minsliderservo1" tabindex="0" value="%MINSLIDERVALUE_SERVO1%" max="180" min="0" step="1" oninput="minslider(1);" />
+                    <input type="range" name="maxsliderservo1" id="maxsliderservo1" tabindex="0" value="%MAXSLIDERVALUE_SERVO1%" max="180" min="0" step="1" oninput="maxslider(1);" />
+                </div>
+            </div>
+
+
+
+
+            <!--Servo 2-->
+
+            <h1>Dreheinheit 2</h1>
+
+            <div class="row box1">
+
+                <div class="col-sm-4">
+                    <h2>Geschwindigkeit</h2>
+                    <div id="servospeed2"></div>
+                </div>
+
+
+                <!--RandomPattern-->
+                <div class="col-sm-8 align-items-center">
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <h2>Einstellungen</h2>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="randompatternservo2" name="randompatternservoname2" %CHECKEDRANDOM_SERVO2%>
+                                    <label class="form-check-label"
+                                        for="flexSwitchCheckDefault">Geschwindigkeitsvariationen</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--On/Off-->
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="onoff2" name="onoffname2" %CHECKEDONOFF_SERVO2%>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">An/Aus</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--DirectControl-->
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="directcontrol2" name="directcontrolname2" %CHECKMANUALCONTROL_SERVO2%>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Manuelle Steuerung</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div slider id="slider-distance-2">
+                    <div>
+                        <div inverse-left></div>
+                        <div inverse-right></div>
+                        <div range></div>
+                        <span thumb></span>
+                        <span thumb></span>
+                        <div sign>
+                            <span id="value">30</span>
+                        </div>
+                        <div sign>
+                            <span id="value">60</span>
+                        </div>
+                    </div>
+                    <input type="range" name="minsliderservo2" id="minsliderservo2" tabindex="0" value="%MINSLIDERVALUE_SERVO2%" max="180" min="0" step="1" oninput="minslider(2);" />
+                    <input type="range" name="maxsliderservo2" id="maxsliderservo2" tabindex="0" value="%MAXSLIDERVALUE_SERVO2%" max="180" min="0" step="1" oninput="maxslider(2);" />
+                </div>
+            </div>
+
+
+
+
+            <!--Servo 3-->
+
+            <h1>Dreheinheit 3</h1>
+            <div class="row box1">
+
+                <div class="col-sm-4">
+                    <h2>Geschwindigkeit</h2>
+                    <div id="servospeed3"></div>
+                </div>
+
+
+                <!--RandomPattern-->
+                <div class="col-sm-8 align-items-center">
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <h2>Einstellungen</h2>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="randompatternservo3" name="randompatternservoname3" %CHECKEDRANDOM_SERVO3%>
+                                    <label class="form-check-label"
+                                        for="flexSwitchCheckDefault">Geschwindigkeitsvariationen</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--On/Off-->
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="onoff3" name="onoffname3" %CHECKEDONOFF_SERVO3%>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">An/Aus</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--DirectControl-->
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="directcontrol3" name="directcontrolname3" %CHECKMANUALCONTROL_SERVO3%>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Manuelle Steuerung</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div slider id="slider-distance-3">
+                    <div>
+                        <div inverse-left></div>
+                        <div inverse-right></div>
+                        <div range></div>
+                        <span thumb></span>
+                        <span thumb></span>
+                        <div sign>
+                            <span id="value">30</span>
+                        </div>
+                        <div sign>
+                            <span id="value">60</span>
+                        </div>
+                    </div>
+                    <input type="range" name="minsliderservo3" id="minsliderservo3" tabindex="0" value="%MINSLIDERVALUE_SERVO3%" max="180" min="0" step="1" oninput="minslider(3);" />
+                    <input type="range" name="maxsliderservo3" id="maxsliderservo3" tabindex="0" value="%MAXSLIDERVALUE_SERVO3%" max="180" min="0" step="1" oninput="maxslider(3);" />
+                </div>
+            </div>
+
+
+
+            <!--Servo 4-->
+
+            <h1>Dreheinheit 4</h1>
+            <div class="row box1">
+
+                <div class="col-sm-4">
+                    <h2>Geschwindigkeit</h2>
+                    <div id="servospeed4"></div>
+                </div>
+
+
+                <!--RandomPattern-->
+                <div class="col-sm-8 align-items-center">
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <h2>Einstellungen</h2>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="randompatternservo4" name="randompatternservoname4" %CHECKEDRANDOM_SERVO4%>
+                                    <label class="form-check-label"
+                                        for="flexSwitchCheckDefault">Geschwindigkeitsvariationen</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--On/Off-->
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="onoff4" name="onoffname4" %CHECKEDONOFF_SERVO4%>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">An/Aus</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--DirectControl-->
+                    <div class="row align-items-center">
+                        <div class="col align-items-center">
+                            <div class="form-check">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="directcontrol4" name="directcontrolname4" %CHECKMANUALCONTROL_SERVO4%>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Manuelle Steuerung</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div slider id="slider-distance-4">
+                    <div>
+                        <div inverse-left></div>
+                        <div inverse-right></div>
+                        <div range></div>
+                        <span thumb></span>
+                        <span thumb></span>
+                        <div sign>
+                            <span id="value">30</span>
+                        </div>
+                        <div sign>
+                            <span id="value">60</span>
+                        </div>
+                    </div>
+                    <input type="range" name="minsliderservo4" id="minsliderservo4" tabindex="0" value="%MINSLIDERVALUE_SERVO4%" max="180" min="0" step="1" oninput="minslider(4);" />
+                    <input type="range" name="maxsliderservo4" id="maxsliderservo4" tabindex="0" value="%MAXSLIDERVALUE_SERVO4%" max="180" min="0" step="1" oninput="maxslider(4);" />
+                </div>
+            </div>
+
+            <div class="d-flex flex-row-reverse">
+                <div class="p-2">
+                    <button type="submit" class="btn btn-primary mb-3">Übernehmen</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="scriptscheck.js"></script>
+
+
+
+</body>
+
+</html>
